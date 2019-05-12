@@ -98,7 +98,3 @@ class SalesForecaster:
         forecast = model.predict(future)
 
         return(forecast)
-
-
-
-
