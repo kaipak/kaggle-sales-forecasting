@@ -16,6 +16,8 @@ def main():
     print(my_test.get_holiday_df())
     forecast = my_test.get_forecast()
     df_se = my_test.get_results(forecast)
+    print(df_se)
+    print(my_test.get_RMSE())
 
 
 

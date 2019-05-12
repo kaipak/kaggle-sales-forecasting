@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from fbprophet import Prophet
 
@@ -40,12 +41,30 @@ class SalesForecaster:
         self.df_results['Weekly_Sales_FC'] = (
             forecast['yhat'][-(self.periods):]
             )
+        self.df_results['Error'] = (
+            self.df_results['Weekly_Sales_Act'] -
+            self.df_results['Weekly_Sales_FC']
+            )
         self.df_results['Squared_Error'] = (
             self.df_results['Weekly_Sales_Act'] -
             self.df_results['Weekly_Sales_FC']
             )**2
 
+        self.df_results.reset_index(inplace=True)
+
         return(self.df_results)
+
+    def get_RMSE(self):
+        """ Return a discrete RMSE value from self.df_results if it
+            exists
+
+        """
+        try:
+            RMSE = np.sqrt(np.sum(self.df_results['Squared_Error']) / len(self.df_test))
+        except Exception as e:
+            print(e, "Are you sure a model was run?")
+            RMSE = 0
+        return RMSE
 
 
     def get_test_df(self):
