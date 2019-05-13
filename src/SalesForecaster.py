@@ -4,8 +4,8 @@ import pandas as pd
 from fbprophet import Prophet
 from sklearn.metrics import mean_squared_error
 
-class SalesForecaster:
 
+class SalesForecaster:
 
     def __init__(self, df, freq='7D', periods=3):
         """ Forecast weekly sales on input dataframe df. Initializes
@@ -101,8 +101,6 @@ class SalesForecaster:
 
         return(self.err_percentage)
 
-
-
     def get_test_df(self):
         """ Return test df
 
@@ -132,7 +130,6 @@ class SalesForecaster:
 
         """
         return(self.df_holidays)
-
 
     def get_forecast(self):
         """ Run Prophet model on df and get the forecast
