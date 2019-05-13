@@ -1,13 +1,10 @@
-
 import multiprocessing as mp
 import pandas as pd
 import SalesForecaster as sf
 
-
 from functools import partial
 
 OUTPUT_COLS = ['Store', 'Dept', 'RMSE', 'Mean_Error_Perc']
-
 
 def get_store_dept_dict(df):
     """ Get unique store-dept dict from dataframe so we can
@@ -69,14 +66,6 @@ def main():
 
     for result in results:
         df_forecasts = df_forecasts.append(result)
-
-    #result1 = run_model(df, {'Store': 45, 'Dept': 96})
-    #result2 = run_model(df, {'Store': 1, 'Dept': 1})
-    #result3 = run_model(df, {'Store': 1, 'Dept': 2})
-#
-#    #df_forecasts = df_forecasts.append(result1)
-#    #df_forecasts = df_forecasts.append(result2)
-    #df_forecasts = df_forecasts.append(result3)
 
     print(df_forecasts)
     df_forecasts.to_csv('../data/output.csv')

@@ -86,6 +86,11 @@ class SalesForecaster:
     def get_mean_err_perc(self):
         """ Calculate and return percentage difference between RMSE and
             mean of test set.
+
+            Returns:
+                err_percentage(float): fraction of RMSE to mean of test
+                    set.
+
         """
         try:
             mean = np.mean(self.df_results['Weekly_Sales_Act'])
