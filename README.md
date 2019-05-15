@@ -1,1 +1,1 @@
-# dat-kaggle-challenge
+# kaggle-sales-forecasting
